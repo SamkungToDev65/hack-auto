@@ -332,8 +332,11 @@
                 video.onloadedmetadata = () => {
                     video.play();
                     isLive = true;
-                    setCapturing(true);
-                    statusMsg.innerText = 'Live Scanning: กำลังเฝ้าดูหน้าจอเกม...';
+                    // ปิดการเริ่มสแกนอัตโนมัติ (Manual Start)
+                    setCapturing(false); 
+                    statusMsg.innerText = 'แชร์หน้าจอสำเร็จ: กดปุ่ม START เพื่อเริ่มสแกน';
+                    toggleScanBtn.disabled = false;
+                    toggleScanBtn.className = "flex-1 lg:flex-none flex items-center justify-center gap-2 px-8 py-3 rounded-2xl font-black transition-all bg-amber-500 text-black hover:bg-amber-400 shadow-lg shadow-amber-500/20";
                 };
 
                 stream.getVideoTracks()[0].onended = stopAll;
@@ -363,7 +366,7 @@
             isCapturing = val;
             if (isCapturing) {
                 toggleScanBtn.className = "flex-1 lg:flex-none flex items-center justify-center gap-2 px-8 py-3 rounded-2xl font-black transition-all bg-red-500 text-white shadow-lg shadow-red-500/20";
-                scanBtnText.innerText = "PAUSE SCAN";
+                scanBtnText.innerText = "STOP SCAN";
                 statusDot.className = "w-2 h-2 rounded-full bg-amber-500 animate-pulse";
                 statusIcon.className = "w-3 h-3 text-amber-500 animate-pulse";
                 sysStatusText.innerText = "Scanning Live...";
@@ -373,7 +376,7 @@
                 toggleScanBtn.querySelector('i').setAttribute('data-lucide', 'pause');
             } else {
                 toggleScanBtn.className = "flex-1 lg:flex-none flex items-center justify-center gap-2 px-8 py-3 rounded-2xl font-black transition-all bg-amber-500 text-black hover:bg-amber-400";
-                scanBtnText.innerText = "RESUME SCAN";
+                scanBtnText.innerText = "START AUTO SCAN";
                 statusDot.className = "w-2 h-2 rounded-full bg-slate-700";
                 statusIcon.className = "w-3 h-3 text-slate-600";
                 sysStatusText.innerText = "System Idle";
