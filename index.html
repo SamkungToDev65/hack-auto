@@ -1,96 +1,448 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer src="/_vercel/insights/script.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
-    />
-    <title>Vercel HTML Starter</title>
-    <meta
-      name="description"
-      content="High-performance HTML based website template."
-    />
-  </head>
-  <body>
-    <h1>Vercel HTML Starter</h1>
-    <p>
-      This template is a simple, but powerful single
-      <code>index.html</code> file deployed to
-      <a href="https://vercel.com">Vercel</a>. When your site is deployed, all
-      static assets (like HTML, JavaScript, CSS, images, and more) are deployed
-      globally to every
-      <a href="https://vercel.com/docs/concepts/edge-network/overview"
-        >Vercel Edge Network</a
-      >
-      region.
-    </p>
-    <h2>Simple, privacy-friendly analytics</h2>
-    <p>
-      Want to understand your visitor traffic? Vercel Analytics gives you
-      first-party, privacy-friendly traffic analytics for your HTML site. This
-      template is already configured using the following script:
-    </p>
-    <pre><code>&lt;script defer src="/_vercel/insights/script.js"&gt;&lt;/script&gt;</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/analytics">Vercel Analytics</a>.
-    </p>
-    <h2>Integrated with git</h2>
-    <p>
-      Deploying updates to your site is as simple as
-      <code>git push</code> thanks to Vercel's advanced
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-      Support for GitHub, GitLab, Bitbucket is zero-configuration, and with the
-      flexible Vercel CLI and API, you can integrate with any tool possible.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-    </p>
-    <h2>Fast <code>gzip</code> compression</h2>
-    <p>
-      To help ensure the smallest possible file sizes for your static assets,
-      the Vercel Edge Network compresses files by default using
-      <code>gzip</code>. You can also optionally use
-      <code>brotli</code> compressesion if you prefer.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/edge-network/compression"
-        >compression</a
-      >.
-    </p>
-    <h2>Advanced routing configuration</h2>
-    <p>
-      Vercel gives you a variety of ways to configure the routing of your
-      website. For example, adding redirects, rewrites, or headers to your page.
-      While you can use <code>vercel.json</code> to define these through JSON,
-      you can also express your routing configuration as code using
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-    <p>
-      Middleware runs before the
-      <a href="https://vercel.com/docs/concepts/edge-network/caching"
-        >Vercel Edge Network Cache</a
-      >, so you can configure routing exactly as your application needs. For
-      example, this template uses <code>middleware.js</code> defined in the root
-      of the repository to add additional security headers to the site:
-    </p>
-    <pre><code>referrer-policy: origin-when-cross-origin
-strict-transport-security: max-age=31536000; includeSubDomains; preload
-x-content-type-options: nosniff
-x-dns-prefetch-control: on
-x-frame-options: DENY</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-  </body>
+8f73e6fb28243674cb49196f7d62bc1b0ff42758<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Solver Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0c0c0e;
+        }
+        .aspect-video { aspect-ratio: 16 / 9; }
+        .aspect-card { aspect-ratio: 3 / 4.2; }
+        
+        /* Custom Range Slider Styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            background: #334155;
+            border-radius: 2px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #f59e0b;
+            cursor: pointer;
+            margin-top: -6px;
+        }
+    </style>
+</head>
+<body class="text-slate-200 p-4 md:p-6">
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-5">
+        
+        <!-- Top Navigation / Header -->
+        <header class="bg-[#1a1a1e] border border-amber-500/20 p-4 rounded-3xl flex flex-col lg:flex-row justify-between items-center gap-4 shadow-2xl">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-amber-500 rounded-2xl flex items-center justify-center shadow-lg shadow-amber-500/30">
+                    <i data-lucide="zap" class="text-black fill-current w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-black text-amber-500 tracking-tight uppercase italic">Memory Solver</h1>
+                    <div class="flex items-center gap-2 text-[10px] text-slate-500 font-bold tracking-widest uppercase">
+                        <i data-lucide="activity" id="status-icon" class="w-3 h-3 text-slate-600"></i>
+                        <span id="system-status-text">System Idle</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 w-full lg:w-auto">
+                <button id="toggle-scan-btn" disabled class="flex-1 lg:flex-none flex items-center justify-center gap-2 px-8 py-3 rounded-2xl font-black transition-all bg-slate-800 text-slate-600 cursor-not-allowed">
+                    <i data-lucide="scan" class="w-5 h-5"></i>
+                    <span id="scan-btn-text">START AUTO SCAN</span>
+                </button>
+                <button id="reset-btn" class="p-3 bg-slate-800 hover:bg-slate-700 rounded-2xl border border-white/5 text-slate-400 transition-all">
+                    <i data-lucide="rotate-ccw" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Error Message (Hidden by default) -->
+        <div id="error-container" class="hidden bg-red-500/10 border border-red-500/20 p-4 rounded-2xl flex items-center gap-3 text-red-400">
+            <i data-lucide="alert-triangle" class="w-5 h-5 shrink-0"></i>
+            <span id="error-text" class="text-xs font-bold"></span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+            
+            <!-- Left Side: Scanner Viewport -->
+            <div class="lg:col-span-7 space-y-4">
+                <div class="relative aspect-video bg-black rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl group">
+                    
+                    <!-- Video Element (Hidden until source available) -->
+                    <video id="main-video" class="hidden w-full h-full object-contain" playsinline muted></video>
+
+                    <!-- Initial State UI -->
+                    <div id="upload-ui" class="w-full h-full flex flex-col md:flex-row items-center justify-center gap-10 p-10">
+                        <button id="live-scan-btn" class="group flex flex-col items-center gap-4 transition-transform hover:scale-105">
+                            <div class="w-24 h-24 rounded-full bg-amber-500/10 border-2 border-amber-500 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-black transition-all text-amber-500">
+                                <i data-lucide="monitor" class="w-12 h-12"></i>
+                            </div>
+                            <span class="font-black text-sm uppercase tracking-widest text-amber-500">Start Live Scan</span>
+                        </button>
+
+                        <div class="w-px h-20 bg-white/5 hidden md:block"></div>
+
+                        <label class="group flex flex-col items-center gap-4 cursor-pointer transition-transform hover:scale-105">
+                            <div class="w-24 h-24 rounded-full bg-slate-800 border-2 border-white/5 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all text-slate-500">
+                                <i data-lucide="video" class="w-12 h-12"></i>
+                            </div>
+                            <span class="font-black text-sm uppercase tracking-widest text-slate-400">Upload Video</span>
+                            <input type="file" id="video-upload" class="hidden" accept="video/*">
+                        </label>
+                    </div>
+
+                    <!-- Overlays -->
+                    <div id="grid-overlay" class="hidden absolute inset-0 pointer-events-none opacity-40">
+                        <div class="absolute top-[22%] left-[5%] w-[90%] h-[65%] border-2 border-dashed border-amber-500/50 rounded-xl">
+                            <div id="grid-lines" class="grid grid-cols-8 grid-rows-3 h-full w-full">
+                                <!-- Grid cells generated by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="scanning-indicator" class="hidden absolute top-5 left-5 flex items-center gap-2 bg-amber-500/90 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20">
+                        <span class="w-2 h-2 bg-black rounded-full animate-ping"></span>
+                        <span class="text-[10px] font-black text-black uppercase tracking-tighter">Scanning Live...</span>
+                    </div>
+
+                    <!-- Toolbar -->
+                    <div id="video-toolbar" class="hidden absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-black/60 backdrop-blur-md p-2 rounded-2xl border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button id="toggle-grid-btn" class="p-2 hover:bg-white/10 rounded-lg text-slate-300">
+                            <i data-lucide="eye" id="grid-icon" class="w-4 h-4"></i>
+                        </button>
+                        <div class="w-px h-4 bg-white/10"></div>
+                        <span class="text-[10px] font-black px-2 text-amber-500">SENSITIVITY:</span>
+                        <input type="range" id="sensitivity-slider" min="40" max="150" value="85" class="w-24">
+                        <span id="sensitivity-value" class="text-xs font-mono text-amber-400 w-6">85</span>
+                    </div>
+                </div>
+                
+                <div class="bg-[#18181b] p-4 rounded-2xl border border-white/5 flex items-center gap-3">
+                    <div id="status-dot" class="w-2 h-2 rounded-full bg-slate-700"></div>
+                    <span id="status-message" class="text-xs font-bold text-slate-400 italic uppercase tracking-tighter">พร้อมใช้งาน: เลือกแหล่งข้อมูลวิดีโอ</span>
+                </div>
+            </div>
+
+            <!-- Right Side: Solution Map -->
+            <div class="lg:col-span-5">
+                <div class="bg-[#18181b] p-5 rounded-[2rem] border border-amber-500/10 shadow-2xl h-full flex flex-col">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="grid" class="text-amber-500 w-5 h-5"></i>
+                            <h2 class="text-lg font-black text-white tracking-tight uppercase">Solution Map</h2>
+                        </div>
+                        <div class="bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full text-amber-400 font-mono font-black text-sm">
+                            <span id="found-count">0</span> / 24
+                        </div>
+                    </div>
+
+                    <div id="solution-grid" class="grid grid-cols-8 gap-1.5 flex-1 content-start">
+                        <!-- 24 cards generated by JS -->
+                    </div>
+
+                    <div class="mt-6 p-4 bg-amber-500/5 rounded-2xl border border-amber-500/10">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i data-lucide="check-circle" class="text-amber-400 w-4 h-4"></i>
+                            <h4 class="text-[10px] font-black text-amber-400 uppercase tracking-widest">คำแนะนำการสแกน</h4>
+                        </div>
+                        <ul class="text-[10px] text-slate-500 space-y-1 list-disc pl-4 italic">
+                            <li>เลือกแชร์หน้าต่างแบบ "Window" เพื่อความแม่นยำสูงสุด</li>
+                            <li>หากสแกนไม่ติด ให้ลองขยับแถบ Sensitivity (ความไว)</li>
+                            <li>ระบบจะเน้นขอบสีเหลืองอัตโนมัติเมื่อพบการ์ดที่ "คู่กัน"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Processing Canvas (Hidden) -->
+    <canvas id="proc-canvas" class="hidden"></canvas>
+
+    <script>
+        // State Management
+        let isCapturing = false;
+        let isLive = false;
+        let showGrid = true;
+        let threshold = 85;
+        let gridImages = Array(24).fill(null);
+        let bestScores = Array(24).fill(0);
+        let requestID = null;
+
+        const ROWS = 3;
+        const COLS = 8;
+
+        // DOM Elements
+        const video = document.getElementById('main-video');
+        const canvas = document.getElementById('proc-canvas');
+        const uploadUI = document.getElementById('upload-ui');
+        const gridOverlay = document.getElementById('grid-overlay');
+        const statusMsg = document.getElementById('status-message');
+        const statusDot = document.getElementById('status-dot');
+        const statusIcon = document.getElementById('status-icon');
+        const sysStatusText = document.getElementById('system-status-text');
+        const toggleScanBtn = document.getElementById('toggle-scan-btn');
+        const scanBtnText = document.getElementById('scan-btn-text');
+        const scanningIndicator = document.getElementById('scanning-indicator');
+        const solutionGrid = document.getElementById('solution-grid');
+        const foundCount = document.getElementById('found-count');
+        const sensitivitySlider = document.getElementById('sensitivity-slider');
+        const sensitivityValue = document.getElementById('sensitivity-value');
+        const errorContainer = document.getElementById('error-container');
+        const errorText = document.getElementById('error-text');
+
+        // Initialize Solution Grid UI
+        function initSolutionGrid() {
+            solutionGrid.innerHTML = '';
+            for (let i = 0; i < 24; i++) {
+                const card = document.createElement('div');
+                card.id = `card-${i}`;
+                card.className = `aspect-card rounded-lg border relative overflow-hidden transition-all duration-300 border-white/5 bg-black/40`;
+                card.innerHTML = `
+                    <div class="w-full h-full flex items-center justify-center opacity-5 text-[8px] font-black">${i + 1}</div>
+                    <div class="absolute top-0 right-0 bg-black/60 px-1 rounded-bl-md text-[7px] text-slate-400 font-mono">${i + 1}</div>
+                `;
+                solutionGrid.appendChild(card);
+            }
+
+            // Init Grid Overlay Lines
+            const gridLines = document.getElementById('grid-lines');
+            gridLines.innerHTML = '';
+            for (let i = 0; i < 24; i++) {
+                const cell = document.createElement('div');
+                cell.className = "border border-white/10 flex items-center justify-center text-[8px] font-mono text-white/20";
+                cell.innerText = i + 1;
+                gridLines.appendChild(cell);
+            }
+        }
+
+        // Processing Logic
+        function getCellPosition(index, vWidth, vHeight) {
+            const startX = vWidth * 0.05;
+            const startY = vHeight * 0.22;
+            const gridW = vWidth * 0.90;
+            const gridH = vHeight * 0.65;
+            const cellW = gridW / COLS;
+            const cellH = gridH / ROWS;
+            const r = Math.floor(index / COLS);
+            const c = index % COLS;
+            return {
+                x: startX + (c * cellW) + (cellW * 0.05),
+                y: startY + (r * cellH) + (cellH * 0.05),
+                w: cellW * 0.9,
+                h: cellH * 0.9
+            };
+        }
+
+        function processFrame() {
+            if (!video.paused && !video.ended && isCapturing) {
+                const ctx = canvas.getContext('2d', { willReadFrequently: true });
+                if (video.videoWidth > 0) {
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    ctx.drawImage(video, 0, 0);
+
+                    for (let i = 0; i < 24; i++) {
+                        const pos = getCellPosition(i, video.videoWidth, video.videoHeight);
+                        if (pos.x + pos.w > canvas.width || pos.y + pos.h > canvas.height) continue;
+
+                        const imgData = ctx.getImageData(pos.x, pos.y, pos.w, pos.h);
+                        const data = imgData.data;
+                        
+                        let totalBrightness = 0;
+                        let colorfulness = 0;
+                        for (let j = 0; j < data.length; j += 40) {
+                            const r = data[j]; const g = data[j+1]; const b = data[j+2];
+                            totalBrightness += (r + g + b) / 3;
+                            colorfulness += Math.abs(r - g) + Math.abs(g - b) + Math.abs(r - b);
+                        }
+                        
+                        const avgBrightness = totalBrightness / (data.length / 40);
+                        const score = avgBrightness + (colorfulness / 10);
+
+                        if (avgBrightness > threshold && score > bestScores[i]) {
+                            const cropCanvas = document.createElement('canvas');
+                            cropCanvas.width = 150; cropCanvas.height = 180;
+                            const cCtx = cropCanvas.getContext('2d');
+                            cCtx.drawImage(video, pos.x, pos.y, pos.w, pos.h, 0, 0, 150, 180);
+                            
+                            const dataUrl = cropCanvas.toDataURL('image/webp', 0.8);
+                            gridImages[i] = dataUrl;
+                            bestScores[i] = score;
+                            updateCardUI(i, dataUrl);
+                        }
+                    }
+                }
+            }
+            requestID = requestAnimationFrame(processFrame);
+        }
+
+        function updateCardUI(index, imgUrl) {
+            const card = document.getElementById(`card-${index}`);
+            card.className = `aspect-card rounded-lg border relative overflow-hidden transition-all duration-300 border-amber-500/50 bg-slate-900 shadow-lg shadow-amber-500/5`;
+            card.innerHTML = `
+                <img src="${imgUrl}" class="w-full h-full object-cover animate-in fade-in" />
+                <div class="absolute top-0 right-0 bg-black/60 px-1 rounded-bl-md text-[7px] text-slate-400 font-mono">${index + 1}</div>
+            `;
+            
+            // Highlight matches
+            const currentFound = gridImages.filter(x => x).length;
+            foundCount.innerText = currentFound;
+            statusMsg.innerText = `ตรวจพบสัญลักษณ์ใหม่! (${currentFound}/24)`;
+
+            // Check for pairs
+            gridImages.forEach((img, i) => {
+                if (img && gridImages.filter((x, idx) => x === img && idx !== i).length > 0) {
+                    const matchedCard = document.getElementById(`card-${i}`);
+                    if (!matchedCard.querySelector('.match-ring')) {
+                        const ring = document.createElement('div');
+                        ring.className = "match-ring absolute inset-0 border-2 border-amber-500 animate-pulse pointer-events-none";
+                        matchedCard.appendChild(ring);
+                    }
+                }
+            });
+        }
+
+        // Actions
+        async function startLiveScanner() {
+            errorContainer.classList.add('hidden');
+            try {
+                const stream = await navigator.mediaDevices.getDisplayMedia({
+                    video: { cursor: "never" },
+                    audio: false
+                });
+                
+                video.srcObject = stream;
+                video.classList.remove('hidden');
+                uploadUI.classList.add('hidden');
+                gridOverlay.classList.remove('hidden');
+                document.getElementById('video-toolbar').classList.remove('hidden');
+
+                video.onloadedmetadata = () => {
+                    video.play();
+                    isLive = true;
+                    setCapturing(true);
+                    statusMsg.innerText = 'Live Scanning: กำลังเฝ้าดูหน้าจอเกม...';
+                };
+
+                stream.getVideoTracks()[0].onended = stopAll;
+            } catch (err) {
+                showError('เข้าถึงหน้าจอไม่ได้: ' + err.message);
+            }
+        }
+
+        function handleFileUpload(e) {
+            const file = e.target.files[0];
+            if (file) {
+                stopAll();
+                const url = URL.createObjectURL(file);
+                video.src = url;
+                video.classList.remove('hidden');
+                uploadUI.classList.add('hidden');
+                gridOverlay.classList.remove('hidden');
+                document.getElementById('video-toolbar').classList.remove('hidden');
+                
+                statusMsg.innerText = 'วิดีโอพร้อมแล้ว กด Start เพื่อเริ่มสแกน';
+                toggleScanBtn.disabled = false;
+                toggleScanBtn.className = "flex-1 lg:flex-none flex items-center justify-center gap-2 px-8 py-3 rounded-2xl font-black transition-all bg-amber-500 text-black hover:bg-amber-400";
+            }
+        }
+
+        function setCapturing(val) {
+            isCapturing = val;
+            if (isCapturing) {
+                toggleScanBtn.className = "flex-1 lg:flex-none flex items-center justify-center gap-2 px-8 py-3 rounded-2xl font-black transition-all bg-red-500 text-white shadow-lg shadow-red-500/20";
+                scanBtnText.innerText = "PAUSE SCAN";
+                statusDot.className = "w-2 h-2 rounded-full bg-amber-500 animate-pulse";
+                statusIcon.className = "w-3 h-3 text-amber-500 animate-pulse";
+                sysStatusText.innerText = "Scanning Live...";
+                scanningIndicator.classList.remove('hidden');
+                
+                // Update icon to pause
+                toggleScanBtn.querySelector('i').setAttribute('data-lucide', 'pause');
+            } else {
+                toggleScanBtn.className = "flex-1 lg:flex-none flex items-center justify-center gap-2 px-8 py-3 rounded-2xl font-black transition-all bg-amber-500 text-black hover:bg-amber-400";
+                scanBtnText.innerText = "RESUME SCAN";
+                statusDot.className = "w-2 h-2 rounded-full bg-slate-700";
+                statusIcon.className = "w-3 h-3 text-slate-600";
+                sysStatusText.innerText = "System Idle";
+                scanningIndicator.classList.add('hidden');
+
+                // Update icon to scan
+                toggleScanBtn.querySelector('i').setAttribute('data-lucide', 'scan');
+            }
+            lucide.createIcons();
+        }
+
+        function stopAll() {
+            if (video.srcObject) {
+                video.srcObject.getTracks().forEach(t => t.stop());
+                video.srcObject = null;
+            }
+            video.src = "";
+            video.classList.add('hidden');
+            uploadUI.classList.remove('hidden');
+            gridOverlay.classList.add('hidden');
+            document.getElementById('video-toolbar').classList.add('hidden');
+            isLive = false;
+            setCapturing(false);
+            toggleScanBtn.disabled = true;
+            toggleScanBtn.className = "flex-1 lg:flex-none flex items-center justify-center gap-2 px-8 py-3 rounded-2xl font-black transition-all bg-slate-800 text-slate-600 cursor-not-allowed";
+        }
+
+        function fullReset() {
+            stopAll();
+            gridImages = Array(24).fill(null);
+            bestScores = Array(24).fill(0);
+            foundCount.innerText = "0";
+            statusMsg.innerText = "รีเซ็ตระบบแล้ว";
+            initSolutionGrid();
+        }
+
+        function showError(msg) {
+            errorText.innerText = msg;
+            errorContainer.classList.remove('hidden');
+        }
+
+        // Event Listeners
+        document.getElementById('live-scan-btn').addEventListener('click', startLiveScanner);
+        document.getElementById('video-upload').addEventListener('change', handleFileUpload);
+        document.getElementById('reset-btn').addEventListener('click', fullReset);
+        
+        toggleScanBtn.addEventListener('click', () => {
+            setCapturing(!isCapturing);
+        });
+
+        sensitivitySlider.addEventListener('input', (e) => {
+            threshold = parseInt(e.target.value);
+            sensitivityValue.innerText = threshold;
+        });
+
+        document.getElementById('toggle-grid-btn').addEventListener('click', () => {
+            showGrid = !showGrid;
+            gridOverlay.classList.toggle('hidden', !showGrid);
+            const icon = document.getElementById('grid-icon');
+            icon.setAttribute('data-lucide', showGrid ? 'eye' : 'eye-off');
+            lucide.createIcons();
+        });
+
+        // Start
+        window.onload = () => {
+            lucide.createIcons();
+            initSolutionGrid();
+            processFrame(); // Start loop
+        };
+    </script>
+</body>
 </html>
